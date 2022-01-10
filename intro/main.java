@@ -1,7 +1,11 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 import Classes.*;
 
 public class Main{
+
+    ArrayList<Movie> collection = new ArrayList<Movie>();
+
     Scanner sc = new Scanner(System.in);
 
     Movie movie1 = new Movie("A new hope", 1977, 4, 10000000, 453000000);
@@ -26,6 +30,8 @@ public class Main{
     String recipe = sc.nextLine();
 
     Movie movie3 = new Movie(title, year, episodeNumber, cost, recipe);
+
+    collection.add(movie1, movie2, movie3);
 
     Character character1 = new Character("Skywalker", "Anakin");
     Character character2 = new Character("Skywalker", "Luke");
