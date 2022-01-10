@@ -10,8 +10,8 @@ public class Character{
     }
 
     public Character(){
-        this.lastName = new String();
-        this.firstName = new String();
+        this.lastName = "";
+        this.firstName = "";
     }
 
     public String getLastName() {

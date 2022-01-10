@@ -2,7 +2,9 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import Classes.*;
+import Classes.Actor;
+import Classes.Movie;
+import Classes.Character;
 
 public class Main{
 
@@ -33,9 +35,9 @@ public class Main{
         String cost = sc.nextLine();
 
         System.out.println("Recette :");
-        String recipe = sc.nextLine();
+        String revenue = sc.nextLine();
 
-        Movie movie3 = new Movie(title, Integer.parseInt(year), Integer.parseInt(episodeNumber), Float.parseFloat(cost), Float.parseFloat(recipe));
+        Movie movie3 = new Movie(title, Integer.parseInt(year), Integer.parseInt(episodeNumber), Float.parseFloat(cost), Float.parseFloat(revenue));
 
         Actor actor1 = new Actor("Christensen", "Hayden");
         Actor actor2 = new Actor("Hamill", "Mark");
@@ -51,9 +53,9 @@ public class Main{
         characters.add(character2);
         characters.add(character3);
 
-        actor1.setCharacters(character1);
-        actor2.setCharacters(character2);
-        actor3.setCharacters(character3);
+        actor1.setCharacters(characters);
+        actor2.setCharacters(characters);
+        actor3.setCharacters(characters);
 
         Collection<Actor> actors = new ArrayList<Actor>();
         actors.add(actor1);

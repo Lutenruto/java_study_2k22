@@ -7,34 +7,34 @@ public class Movie{
     private int year;
     private int episodeNumber;
     private float cost;
-    private float recipe;
+    private float revenue;
     private Collection<Actor> actors;
 
-    public Movie(String title, int year, int episodeNumber, float cost, float recipe) {
+    public Movie(String title, int year, int episodeNumber, float cost, float revenue) {
         this.title = title;
         this.year = year;
         this.episodeNumber = episodeNumber;
         this.cost = cost;
-        this.recipe = recipe;
+        this.revenue = revenue;
     }
 
-    public Movie(String title, int year, int episodeNumber, float cost, float recipe, Collection<Actor> actors) {
+    public Movie(String title, int year, int episodeNumber, float cost, float revenue, Collection<Actor> actors) {
         this.title = title;
         this.year = year;
         this.episodeNumber = episodeNumber;
         this.cost = cost;
-        this.recipe = recipe;
+        this.revenue = revenue;
         this.actors = actors;
     }
 
-    public Movie(){
-        this.title = new String();
-        this.year = new Integer();
-        this.episodeNumber = new Integer();
-        this.cost = new Float();
-        this.recipe = new Float();
-        this.actors = new Collection<Actor>;
-    }
+//    public Movie(){
+//        this.title = "";
+//        this.year = new Integer();
+//        this.episodeNumber = new Integer();
+//        this.cost = new Float();
+//        this.revenue = new Float();
+//        this.actors = new Collection<Actor>;
+//    }
 
     public String getTitle() {
         return title;
@@ -68,12 +68,12 @@ public class Movie{
         this.cost = cost;
     }
 
-    public float getRecipe() {
-        return recipe;
+    public float getRevenue() {
+        return revenue;
     }
 
-    public void setRecipe(float recipe) {
-        this.recipe = recipe;
+    public void setRecipe(float revenue) {
+        this.revenue = revenue;
     }
 
     public Collection<Actor> getActors() {
@@ -91,7 +91,7 @@ public class Movie{
                 ", year=" + year +
                 ", episodeNumber=" + episodeNumber +
                 ", cost=" + cost +
-                ", recipe=" + recipe +
+                ", revenue=" + revenue +
                 ", actors=" + actors +
                 '}';
     }

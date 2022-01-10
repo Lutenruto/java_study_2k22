@@ -18,11 +18,11 @@ public class Actor{
         this.firstName = firstName;
     }
 
-    public Actor(){
-        this.lastName = new String();
-        this.firstName = new String();
-        this.characters = new Collection<Character>;
-    }
+//    public Actor(){
+//        this.lastName = "";
+//        this.firstName = "";
+//        this.characters = new Collection<Character>;
+//    }
 
     public String getLastName() {
         return this.lastName;
