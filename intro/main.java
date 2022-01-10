@@ -1,10 +1,10 @@
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.*;
 import Classes.*;
 
 public class Main{
 
-    ArrayList<Movie> collection = new ArrayList<Movie>();
+    ArrayList<Movie> listFilm = new ArrayList<Movie>();
 
     Scanner sc = new Scanner(System.in);
 
@@ -31,9 +31,16 @@ public class Main{
 
     Movie movie3 = new Movie(title, year, episodeNumber, cost, recipe);
 
-    collection.add(movie1, movie2, movie3);
-
     Character character1 = new Character("Skywalker", "Anakin");
     Character character2 = new Character("Skywalker", "Luke");
     Character character3 = new Character("Palpatine", "Sheev");
+
+    listFilm.add(movie1,movie2,movie3);
+    printAll(listFilm);
+
+    public static void printAll(Movie[] all){
+        for(int i = 0; i < all.length; i++ ){
+            System.out.println(all[i]);
+        }
+    }
 }
