@@ -7,6 +7,11 @@ public class Actor{
         this.firstName = firstName;
     }
 
+    public Acteur(){
+        this.lastName = new String();
+        this.firstName = new String();
+    }
+
     public String getLastName() {
         return this.lastName;
     }

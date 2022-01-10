@@ -13,6 +13,14 @@ public class Movie{
         this.recipe = recipe;
     }
 
+    public Movie(){
+        this.title = new String();
+        this.year = new Integer();
+        this.episodeNumber = new Integer();
+        this.cost = new Float();
+        this.recipe = new Float();
+    }
+
     public String getTitle() {
         return this.title;
     }
