@@ -30,7 +30,11 @@ public class Character{
         this.firstName = firstName;
     }
 
+    @Override
     public String toString() {
-        return "Character | Last name : " + this.lastName + ", First name : " + this.firstName;
+        return "Character{" +
+                "lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                '}';
     }
 }
