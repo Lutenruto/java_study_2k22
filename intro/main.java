@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import Classes.*;
 
 public class Main{
     Scanner sc = new Scanner(System.in);
@@ -25,4 +26,8 @@ public class Main{
     String recipe = sc.nextLine();
 
     Movie movie3 = new Movie(title, year, episodeNumber, cost, recipe);
+
+    Character character1 = new Character("Skywalker", "Anakin");
+    Character character2 = new Character("Skywalker", "Luke");
+    Character character3 = new Character("Palpatine", "Sheev");
 }

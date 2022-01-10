@@ -1,15 +1,15 @@
 package Classes;
 
-public class Actor{
+public class Character{
     public String lastName;
     public String firstName;
 
-    public Actor(String lastName, String firstName){
+    public Character(String lastName, String firstName){
         this.lastName = lastName;
         this.firstName = firstName;
     }
 
-    public Actor(){
+    public Character(){
         this.lastName = new String();
         this.firstName = new String();
     }
@@ -31,6 +31,6 @@ public class Actor{
     }
 
     public String toString() {
-        return "Actor | Last name : " + this.lastName + ", First name : " + this.firstName;
+        return "Character | Last name : " + this.lastName + ", First name : " + this.firstName;
     }
 }
