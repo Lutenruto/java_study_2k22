@@ -1,6 +1,6 @@
 package Classes;
 
-import java.util.Collection;
+import java.util.*;
 
 public class Movie{
     private String title;
@@ -8,7 +8,7 @@ public class Movie{
     private int episodeNumber;
     private float cost;
     private float revenue;
-    private Collection<Actor> actors;
+    private List<Actor> actors;
 
     public Movie(String title, int year, int episodeNumber, float cost, float revenue) {
         this.title = title;
@@ -18,7 +18,7 @@ public class Movie{
         this.revenue = revenue;
     }
 
-    public Movie(String title, int year, int episodeNumber, float cost, float revenue, Collection<Actor> actors) {
+    public Movie(String title, int year, int episodeNumber, float cost, float revenue, List<Actor> actors) {
         this.title = title;
         this.year = year;
         this.episodeNumber = episodeNumber;
@@ -33,7 +33,7 @@ public class Movie{
 //        this.episodeNumber = new Integer();
 //        this.cost = new Float();
 //        this.revenue = new Float();
-//        this.actors = new Collection<Actor>;
+//        this.actors = new List<Actor>;
 //    }
 
     public String getTitle() {
@@ -72,16 +72,73 @@ public class Movie{
         return revenue;
     }
 
-    public void setRecipe(float revenue) {
+    public void setRevenue(float revenue) {
         this.revenue = revenue;
     }
 
-    public Collection<Actor> getActors() {
+    public List<Actor> getActors() {
         return actors;
     }
 
-    public void setActors(Collection<Actor> actors) {
+    public void setActors(List<Actor> actors) {
         this.actors = actors;
+    }
+
+    public int nbActeurs() {
+        return this.actors.size();
+    }
+
+    public int nbPersonnages() {
+        int nbPersonnages = 0;
+        for (Actor acteur : this.actors) {
+            nbPersonnages = nbPersonnages + acteur.getCharacters().size();
+        }
+        return nbPersonnages;
+    }
+
+    public void addActor (List<Actor> listeActeurs) {
+        this.actors.addAll(listeActeurs);
+    }
+
+    public void addActor (Actor acteur) {
+        this.actors.add(acteur);
+    }
+
+    public Map<String, Object> calculBenefice() {
+        Map<String, Object> duetBenefice = new HashMap<String, Object>();
+
+        long benefice = (long) (this.getRevenue() - this.getCost());
+        if (benefice > 0) {
+            duetBenefice.put("isBeneficiary", true);
+            duetBenefice.put("Benefice", benefice);
+        } else {
+            duetBenefice.put("isBeneficiary", false);
+            duetBenefice.put("Déficit", benefice);
+        }
+        return duetBenefice;
+    }
+
+    public List<String> getListActeursByName() {
+        List<String> listActeursByName = new ArrayList<String>();
+        actors.forEach((acteur) -> {
+            listActeursByName.add(acteur.getFirstName() + " " + acteur.getLastName());
+        });
+        return listActeursByName;
+    }
+
+    public boolean isBefore(int annee) {
+        return this.year < annee;
+    }
+
+    public void tri() {
+        Comparator<Actor> alphabeticalComparator = new Comparator<Actor>() {
+            public int compare(Actor o1, Actor o2) {
+                String fullnameActor1 = o1.getFirstName() + " " + o1.getLastName();
+                String fullnameActor2 = o2.getFirstName() + " " + o2.getLastName();
+                return fullnameActor1.compareTo(fullnameActor2);
+            }
+        };
+        this.actors.sort(alphabeticalComparator);
     }
 
     @Override

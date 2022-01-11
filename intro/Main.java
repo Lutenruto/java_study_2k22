@@ -1,16 +1,10 @@
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 import Classes.Actor;
 import Classes.Movie;
 import Classes.Character;
 
 public class Main{
-
-    public static void printAllMovies(Collection<Movie> movies){
-        movies.forEach(System.out::println);
-    }
 
     public static void main(String[] args) {
 
@@ -39,37 +33,48 @@ public class Main{
 
         Movie movie3 = new Movie(title, Integer.parseInt(year), Integer.parseInt(episodeNumber), Float.parseFloat(cost), Float.parseFloat(revenue));
 
-        Actor actor1 = new Actor("Christensen", "Hayden");
-        Actor actor2 = new Actor("Hamill", "Mark");
-        Actor actor3 = new Actor("McDiarmid", "Ian");
+        List<Movie> trilogie = new ArrayList<Movie>(Arrays.asList(movie1, movie2, movie3));
 
-        Collection<Character> characters = new ArrayList<Character>();
+        afficherInformationsTrilogie(trilogie);
 
-        Character character1 = new Character("Skywalker", "Anakin");
-        Character character2 = new Character("Skywalker", "Luke");
-        Character character3 = new Character("Palpatine", "Sheev");
+        Character padmeAmidala = new Character("Padmé", "Amidala");
+        Actor nataliePortman = new Actor("Natalie", "Portman", new ArrayList<Character>(Arrays.asList(padmeAmidala)));
 
-        characters.add(character1);
-        characters.add(character2);
-        characters.add(character3);
+        Character hanSolo = new Character("Han", "Solo");
+        Character indianaJones = new Character("Indiana", "Jones");
+        List<Character> personnagesHarrisonFord = new ArrayList<Character>();
+        personnagesHarrisonFord.add(hanSolo);
+        personnagesHarrisonFord.add(indianaJones);
+        Actor harrisonFord = new Actor("Harrison", "Ford", personnagesHarrisonFord);
+        System.out.println("Le nombre de personnage incarnés par " + harrisonFord.getFirstName() + " " + harrisonFord.getLastName() + " est de : " + harrisonFord.nbPersonnages());
 
-        actor1.setCharacters(characters);
-        actor2.setCharacters(characters);
-        actor3.setCharacters(characters);
+        movie1.addActor(harrisonFord);
+        movie1.addActor(nataliePortman);
+        movie1.tri();
+        System.out.println("Liste des acteurs après tri" + movie1.getListActeursByName());
 
-        Collection<Actor> actors = new ArrayList<Actor>();
-        actors.add(actor1);
+        Map<Integer, Movie> dicoFilms = new HashMap<Integer, Movie>();
+        for (Movie film : trilogie) {
+            dicoFilms.put(film.getYear(), film);
+        }
+        makeBackUp(dicoFilms);
 
-        movie1.setActors(actors);
-        movie2.setActors(actors);
-        movie3.setActors(actors);
+    }
 
-        Collection<Movie> listFilm = new ArrayList<Movie>();
-        listFilm.add(movie1);
-        listFilm.add(movie2);
-        listFilm.add(movie3);
+    public static void afficherInformationsTrilogie(List<Movie> trilogie) {
+        for (Movie film : trilogie) {
+            System.out.println(film.toString());
+        }
+    }
 
-        printAllMovies(listFilm);
+    public static void makeBackUp (Map<Integer, Movie> dictionnaireFilms) {
+        for (Map.Entry<Integer, Movie> entry : dictionnaireFilms.entrySet()) {
+            if (entry.getValue().calculBenefice().get("isBeneficiary").equals(true)) {
+                System.out.println(entry.getKey() + " - " + entry.getValue().getTitle() + " - " + entry.getValue().calculBenefice().get("Benefice"));
+            } else {
+                System.out.println(entry.getKey() + " - " + entry.getValue().getTitle() + " - " + entry.getValue().calculBenefice().get("Déficit"));
+            }
+        }
     }
 
 }

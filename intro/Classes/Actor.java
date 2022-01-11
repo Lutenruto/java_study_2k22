@@ -1,13 +1,13 @@
 package Classes;
 
-import java.util.Collection;
+import java.util.List;
 
 public class Actor{
     private String lastName;
     private String firstName;
-    private Collection<Character> characters;
+    private List<Character> characters;
 
-    public Actor(String lastName, String firstName, Collection<Character> characters) {
+    public Actor(String lastName, String firstName, List<Character> characters) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.characters = characters;
@@ -40,15 +40,19 @@ public class Actor{
         this.firstName = firstName;
     }
 
-    public Collection<Character> getCharacters() {
+    public List<Character> getCharacters() {
         return characters;
     }
 
-    public void setCharacters(Collection<Character> characters) {
+    public void setCharacters(List<Character> characters) {
         this.characters = characters;
     }
 
     public int nbCharacters(){
+        return this.characters.size();
+    }
+
+    public int nbPersonnages() {
         return this.characters.size();
     }
 
