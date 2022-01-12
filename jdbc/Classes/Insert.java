@@ -3,7 +3,7 @@ package Classes;
 import java.sql.*;
 
 public class Insert {
-    
+
     public static void insert(String name_table) {
         try {
             String strClassName = "com.mysql.jdbc.Driver";
@@ -11,12 +11,12 @@ public class Insert {
             String login = "root";
             String motdepasse = "";
             String strUrl = "jdbc:mysql://localhost:3306/" + dbName;
+            Class.forName(strClassName);
+            Connection conn = DriverManager.getConnection(strUrl, login, motdepasse);
             String strInsert = "INSERT INTO "
                     + name_table
                     + " (prenom, login, password, statut, age)"
                     + "VALUES ('Toto', 'Titi', 'yiyorop12', 'Etudiant', 24);";
-            Class.forName(strClassName);
-            Connection conn = DriverManager.getConnection(strUrl, login, motdepasse);
             Statement stAddAccess = conn.createStatement();
             stAddAccess.executeUpdate(strInsert);
 
