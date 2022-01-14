@@ -5,7 +5,6 @@ import java.sql.*;
 public class Select {
 
     public static void select(String name_table) {
-        System.out.println(name_table);
         try {
             String strClassName = "com.mysql.jdbc.Driver";
             String dbName = "java_school";
